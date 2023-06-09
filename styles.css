@@ -1,0 +1,457 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#wrapper{
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 75rem;
+    margin: auto;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-items{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-items div a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: all .4s;
+}
+
+.nav-items div a:hover{
+    font-weight: bold;
+}
+
+#text{
+    font-size: 2.5rem;
+    font-weight: bold;
+    /* font-family: 'Geologica', sans-serif; */
+}
+
+.hero-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 4rem;
+    padding-bottom: 12rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
+.user-image img{
+    height: 15rem;
+}
+
+.user-image{
+    filter: grayscale(1);
+    padding: 2.5rem;
+    animation-name: scaleImage;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+@keyframes scaleImage{
+    0%{
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+    50%{
+        filter: grayscale(1);
+        transform: scale(1.1);
+        box-shadow: 0.5rem 0.5rem 1rem #0000009c;
+    }
+    100%{
+        filter: grayscale(0);
+        transform: scale(1);
+    }
+}
+
+.faded-text{
+    position: absolute;
+    top: 30rem;
+    left: -9rem;
+    font-size: 3rem;
+    user-select: none;
+    color: #80808073;
+    font-weight: bold;
+}
+
+.hero-section-left{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero-section-heading{
+    font-weight: 600;
+    font-size: 1.8rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.hero-section-sub-heading{
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.role{
+    color: #5943c7;
+    font-weight: bold;
+    font-size: 1.8rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.hero-section-description{
+    width: 33rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+}
+
+.btn{
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 1rem;
+    width: 8rem;
+    height: 3rem;
+    padding: 1rem 1rem;
+    filter: drop-shadow(0.3rem 0.3rem 0.2rem rgba(0, 0, 0, 0.6));
+    position: relative;
+}
+.btn::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .5s ease-in;
+    z-index: -1;
+}
+.btn:hover::before{
+    transform: scaleX(1);
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform: scale(.9);
+}
+
+.btn-project::before{
+    background-color: white;
+}
+
+.btn-project:hover{
+    color: black;
+}
+
+.project-section{
+    background-color: #80808073;
+    padding-bottom: 3.5rem;
+}
+
+.page-header{
+    font-family: 'Geologica', sans-serif;
+    text-align: center;
+    color: #dc2e09;
+    font-size: 4.5rem;
+    padding: 3rem 0;
+}
+
+.project-card{
+    width: 50rem;
+    height: 21rem;
+    margin: auto;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover ;
+    position: relative;
+    box-shadow: 0 0 30px black;
+}
+
+.project-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.538);
+    z-index: 1;
+}
+
+.project-card::after{
+    content: "";
+    background-color: rgb(77 77 167 / 76%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 1s;
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 3;
+}
+
+.project-card:hover::after{
+    transform: scaleX(1);
+}
+
+.project-number{
+    font-family: 'Geologica', sans-serif;
+    color: white;
+    font-size: 8rem;
+    font-weight: bold;
+    z-index: 10;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.project-card:hover .project-number{
+    opacity: 1;
+}
+
+.num-right{
+    left: 44rem;
+    top: -2rem;
+}
+
+.num-left{
+    top: -3rem;
+    left: -3rem;
+}
+
+.project-content{
+    position: relative;
+    color: white;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 4rem;
+    width: 40rem;
+    gap: 1rem;
+    transition: transform .5s;
+}
+
+.right-container{
+    margin-left: 15rem;
+    width: 33rem;
+}
+
+.project-card:hover .project-content{
+    transform: scale(1.1);
+}
+
+.project-skill{
+    font-size: 3rem;
+}
+
+.btn-grp{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
+.icon{
+    color: white;
+    font-size: 1.5rem;
+    transition: all .4s;
+}
+
+.icon:hover{
+    color: #dc2e09;
+}
+
+#project1{
+    background-image: url(images/spotify-image.jpg);
+    margin-left: 19rem;
+}
+
+#project2{
+    background-image: url(images/project-2.png);
+    margin-right: 19rem;
+    margin-top: 4rem;
+}
+
+.skills-container{
+    display: flex;
+    position: relative;
+    padding-top: 7rem;
+    padding-bottom: 15rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.skill-fade-text{
+    position: absolute;
+    top: 41rem;
+    right: -9rem;
+    font-size: 7rem;
+    user-select: none;
+    color: #80808073;
+    font-weight: bold;
+    /* font-family: 'Geologica', sans-serif; */
+}
+
+.caps{
+    font-size: 5rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.skill-heading{
+    color: #dc2e09;
+    font-size: 3rem;
+    font-family: 'Geologica', sans-serif;
+}
+
+.skill-subheading{
+    margin-top: 1rem;
+    width: 35rem;
+    line-height: 1.5rem;
+    text-align: justify;
+    font-weight: 600;
+}
+
+.skills-logo{
+    font-size: 6rem;
+}
+
+.skill-container-right{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30rem;
+    gap: 2rem;
+    margin-top: 8rem;
+}
+
+.contactus-container{
+    width: 100%;
+    background-color: #80808073;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.contactus-heading{
+    color: #dc2e09;
+    font-family: 'Geologica', sans-serif;
+    font-size: 4rem;
+}
+
+.contactus-subHeading{
+    font-size: 2.5rem;
+    color: #0d3665a8;
+    padding-bottom: 3rem;
+}
+
+.formfields-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.formfield{
+    width: 41rem;
+    height: 2rem;
+    padding-left: 2rem;
+    border-radius: 0.3rem;
+    border: none;
+    box-shadow: 0.1rem 0.1rem 0.5rem;
+}
+
+.formfield-textarea{
+    height: 10rem;
+    padding-top: .8rem;
+}
+
+#submit-btn{
+    width: 13rem;
+    margin-left: 18rem;
+    margin-top: 2rem;
+}
+
+#submit-btn i{
+    padding-left: .5rem;
+}
+
+footer{
+    position: relative;
+    background-color: #343d68;
+    padding: 6rem 0;
+}
+
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-faded-text{
+    position: absolute;
+    color: #535c87;
+    top: 10.8rem;
+    left: 0;
+    user-select: none;
+    font-size: 2.5rem;
+}
+
+.link-wrapper a{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    transition: all .4s;
+}
+
+.link-wrapper a:hover{
+    color: #dc2e09;
+}
+
+.footer-icon{
+    color: white;
+    font-size: 1.5rem;
+    padding-right: 1rem;
+    transition: all .4s;
+}
+
+.footer-icon:hover{
+    color: #dc2e09;
+}
